@@ -1,0 +1,15 @@
+-- Create Linked Service with External Data Source
+Use Authentication Type as - System Assigned Managed Identity
+
+-- Create Credential
+CREATE DATABASE SCOPED CREDENTIAL dtcred
+WITH IDENTITY = 'Managed Identity'
+
+-- Create External Datasource
+
+CREATE EXTERNAL DATA SOURCE raw_ext_source
+WITH
+(
+LOCATION = 'https://<datalake name>.dfs.core.windows.net/raw', -- Main Container (All including sub folders are included automatically
+CREDENTIAL = dtcred
+)
