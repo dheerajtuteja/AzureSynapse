@@ -31,6 +31,34 @@ WITH
 # Round Robin Block Diagram
 ![Round Robin](https://github.com/user-attachments/assets/a3284409-f8c3-4b6f-b1bb-993a425359cc)
 
+```
+Sample Code:
+CREATE TABLE [dbo].[Fee]
+(   [ID]                    int          NOT NULL
+,   [NAME]                  varchar      NOT NULL
+,   [FEE_AMOUNT]            int          NOT NULL
+)
+WITH
+(   
+DISTRIBUTION = ROUND_ROBIN
+);
+
+```
+
 # Replicate Block Diagram
 ![Replicate](https://learn.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/media/massively-parallel-processing-mpp-architecture/replicated-table.png)
 
+
+```
+Sample Code:
+CREATE TABLE [dbo].[Country]
+(   [CountryISO]                    varchar          NOT NULL
+,   [Country_Name]                  varchar          NOT NULL
+,   [Region]                        varchar          NOT NULL
+)
+WITH
+(   
+DISTRIBUTION = REPLICATE
+);
+
+```
